@@ -8,6 +8,10 @@ current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
 css_file = current_dir / "styles" / "main.css"
 resume_file = current_dir / "assets" / "CV_AB.pdf"
 profile_pic = current_dir / "assets" / "profile-pic.png"
+cert_ia = current_dir / "assets" / "cert_ia.pdf"
+cert_django = current_dir / "assets" / "cert_django.pdf"
+cert_programador = current_dir / "assets" / "cert_programador.pdf"
+cert_python_inicial = current_dir / "assets" / "cert_python_inicial.pdf"
 
 
 
@@ -42,13 +46,13 @@ profile_pic = Image.open(profile_pic)
 # --- HERO SECTION ---
 col1, col2 = st.columns(2, gap="small")
 with col1:
-    st.image(profile_pic, width=230)
+    st.image(profile_pic, width=260)
 
 with col2:
     st.title(NAME)
     st.write(DESCRIPTION)
     st.download_button(
-        label=" 📄 Download Resume",
+        label=" 📄 Descargar CV",
         data=PDFbyte,
         file_name=resume_file.name,
         mime="application/octet-stream",
@@ -128,26 +132,46 @@ cursos = [
         "año": 2009
     },
     {
-        "nombre": "Certificación Programador Python, Django e Inteligencia Artificial",
+        "nombre": "Certificación Python Analytics",
+        "institución": "Inove Coding School",
+        "año": 2024,
+        "certificación": cert_ia  # Ruta al archivo PDF
+    },
+    {
+        "nombre": "Certificación Programador Django",
         "institución": "Inove Coding School",
         "año": 2023,
-        "certificación": "https://inovecode.com/"
+        "certificación": cert_django  # Ruta al archivo PDF
+    },
+    {
+        "nombre": "Certificación Programador Python",
+        "institución": "Inove Coding School",
+        "año": 2023,
+        "certificación": cert_programador  # Ruta al archivo PDF
+    },
+    {
+        "nombre": "Certificación Python Inicial",
+        "institución": "Inove Coding School",
+        "año": 2022,
+        "certificación": cert_python_inicial  # Ruta al archivo PDF
     }
 ]
 
-# --- Mostrar Cursos ---
+# --- Show Courses ---
 for curso in cursos:
     st.write(f"**{curso['nombre']}**")
     st.write(f"{curso['institución']} ({curso['año']})")
     if 'certificación' in curso:
-        st.write(f"[Ver Certificación]({curso['certificación']})")
+        # Crear el enlace directo al archivo PDF
+        pdf_link = f"[Ver Certificación](assets/{curso['certificación'].name})"
+        st.markdown(pdf_link, unsafe_allow_html=True)
     st.write("---")
 
         
 
 # --- Projects & Accomplishments ---
 st.write('\n')
-st.subheader("Projectos & Logros")
+st.subheader("Proyectos y Logros")
 st.write("---")
 for project, link in PROJECTS.items():
     st.write(f"[{project}]({link})")
