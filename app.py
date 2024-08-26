@@ -22,7 +22,7 @@ EMAIL = "dalebv87@gmail.com"
 SOCIAL_MEDIA = {
     "YouTube": "Nan", 
     "LinkedIn": "https://www.linkedin.com/in/alessandra-balconi-5515a7182/",
-    "GitHub": "Nan",
+    "GitHub": "https://github.com/Abalconi",
     "Twitter": "Nan"
 }
 PROJECTS = {
