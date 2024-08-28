@@ -44,9 +44,9 @@ import streamlit as st
 from forms.contact import contact_form
 
 
-@st.dialog("Contact Me")
-def show_contact_form():
-   contact_form()
+#@st.dialog("Contact Me")
+#def show_contact_form():
+#   contact_form()
 
 from pathlib import Path
 
@@ -73,7 +73,7 @@ with col2:
         "Analista de Datos con un talento para transformar datos en historias claras y útiles, listo para impulsar decisiones estratégicas con un toque de creatividad y precisión."
     )
     if st.button("✉️ Contáctame"):
-        show_contact_form()
+        contact_form()
 
 # --- REDES SOCIALES ---
 # st.write('\n')
