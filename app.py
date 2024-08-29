@@ -5,23 +5,9 @@ import streamlit as st
 about_page = st.Page(
     "views/about_me.py",
     title="Sobre Mí",
-    icon="🌻",
+    icon=":material/mode_off_on:",
     default=True,
 )
-
-SOCIAL_MEDIA = {
-    "LinkedIn": "https://www.linkedin.com/feed/",
-    "GitHub": "https://github.com/Abalconi",
-    }
-
-# --- SOCIAL LINKS ---
-st.sidebar.write("### Sígueme en")
-for platform, link in SOCIAL_MEDIA.items():
-    #emoji = {
-    #   "LinkedIn": "🔗",
-    #    "GitHub": "🐙"
-    #}.get(platform, "🔗")  # Usa un emoji por defecto si la plataforma no está en el diccionario
-    st.sidebar.markdown(f"[{platform}]({link})")
 
 project_1_page = st.Page(
     "views/sales_dashboard.py",
@@ -33,7 +19,6 @@ project_2_page = st.Page(
     title="ChatBot",
     icon=":material/smart_toy:",
 )
-
 
 
 # --- NAVIGATION SETUP [WITHOUT SECTIONS] ---
@@ -48,10 +33,11 @@ pg = st.navigation(
 )
 
 
-
 # --- SHARED ON ALL PAGES ---
 st.logo("assets/tekylab_logo.jpg")
-st.sidebar.markdown("App desarrollada en Python.")
+st.sidebar.markdown("App desarrollada en Python y Streamlit")
+
+
 
 # --- RUN NAVIGATION ---
 pg.run()

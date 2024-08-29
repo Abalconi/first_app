@@ -1,4 +1,5 @@
 import streamlit as st
+from pathlib import Path
 
 
 # --- GENERAL SETTIGNS ---
@@ -44,22 +45,25 @@ import streamlit as st
 from forms.contact import contact_form
 
 
-#@st.dialog("Contact Me")
-#def show_contact_form():
-#   contact_form()
+@st.dialog("Contáctame")
+def show_contact_form():
+    contact_form()
 
 from pathlib import Path
 
-
+SOCIAL_MEDIA = {
+    "LinkedIn": "https://www.linkedin.com/feed/",
+    "GitHub": "https://github.com/Abalconi",
+    }
 
 # Definir el directorio actual (current directory)
 current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
 
 # Definir las rutas a los certificados
-cert_ia = "cert_ia.pdf"
-cert_django = "cert_django.pdf"
-cert_programador = "cert_programador.pdf"
-cert_python_inicial = "cert_python_inicial.pdf"
+cert_ia_url = "https://raw.githubusercontent.com/Abalconi/first_app/main/assets/cert_ia.pdf"
+cert_django_url = "https://raw.githubusercontent.com/Abalconi/first_app/main/assets/cert_django.pdf"
+cert_programador_url = "https://raw.githubusercontent.com/Abalconi/first_app/main/assets/cert_programador.pdf"
+cert_python_inicial_url = "https://raw.githubusercontent.com/Abalconi/first_app/main/assets/cert_python_inicial.pdf"
 
 
 # --- HERO SECTION ---
@@ -75,12 +79,12 @@ with col2:
     if st.button("✉️ Contáctame"):
         contact_form()
 
-# --- REDES SOCIALES ---
-# st.write('\n')
-#cols = st.columns(len(SOCIAL_MEDIA))
-#for index, (platform, link) in enumerate(SOCIAL_MEDIA.items()):
-#    cols[index].write(f"[{platform}]({link})")
 
+#  --- REDES SOCIALES ---
+st.write('\n')
+cols = st.columns(len(SOCIAL_MEDIA))
+for index, (platform, link) in enumerate(SOCIAL_MEDIA.items()):
+    cols[index].write(f"[{platform}]({link})")
 
 # --- Experiencia y Calificaciones ---
 st.write('\n')
@@ -101,7 +105,7 @@ st.subheader("Habilidades")
 st.write(
     """
 - 👩‍💻 Programación: Python (Scikit-learn, Pandas, Numpy)
-- 📊 Visualización: PowerBi, MS Excel, Matplotlib, Seaborn
+- 📊 Visualización: PowerBi, MS Excel, Matplotlib, Seaborn, Plotly
 - 📚 Modelos: Regresión, Segmentación, Clasificación, Redes Neuronales
 - 🗄️ Bases de Datos: Postgres
 """
@@ -151,35 +155,32 @@ cursos = [
         "nombre": "Certificación Python Analytics",
         "institución": "Inove Coding School",
         "año": 2024,
-        "certificación": cert_ia  # Ruta al archivo PDF
+        "certificación": cert_ia_url # URL del archivo PDF
     },
     {
         "nombre": "Certificación Programador Django",
         "institución": "Inove Coding School",
         "año": 2023,
-        "certificación": cert_django  # Ruta al archivo PDF
+        "certificación": cert_django_url  # URL del archivo PDF
     },
     {
         "nombre": "Certificación Programador Python",
         "institución": "Inove Coding School",
         "año": 2023,
-        "certificación": cert_programador  # Ruta al archivo PDF
+        "certificación": cert_programador_url  # URL del archivo PDF
     },
     {
         "nombre": "Certificación Python Inicial",
         "institución": "Inove Coding School",
         "año": 2022,
-        "certificación": cert_python_inicial  # Ruta al archivo PDF
+        "certificación": cert_python_inicial_url  # URL del archivo PDF
     }
 ]
 
-# --- Mostrar Cursos ---
+# --- MOSTRAR CURSOS ---
 for curso in cursos:
     st.write(f"**{curso['nombre']}**")
     st.write(f"{curso['institución']} ({curso['año']})")
     if 'certificación' in curso:
-        # Crear el enlace directo al archivo PDF
-        pdf_link = f"[Ver Certificación](assets/{curso['certificación']})"
-        st.markdown(pdf_link, unsafe_allow_html=True)
+        st.markdown(f'<a href="{curso["certificación"]}" target="_blank" rel="noopener noreferrer">Ver Certificación</a>', unsafe_allow_html=True)
     st.write("---")
-        
