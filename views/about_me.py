@@ -1,23 +1,23 @@
 import streamlit as st
 from pathlib import Path
+from PIL import Image
+
 
 
 # --- GENERAL SETTIGNS ---
 # PAGE_TITLE = "Digital CV | Alessandra Balconi"
-# PAGE_ICON = "🌷"
-# NAME = "Alessandra Balconi"
-# DESCRIPTION = """
+#PAGE_ICON = "🌷"
+#NAME = "Alessandra Balconi"
+#DESCRIPTION = """
 # Analista de Datos con un talento para transformar datos en historias claras y útiles, listo para impulsar decisiones estratégicas con un toque de creatividad y precisión.
 # """
-# EMAIL = "dalebv87@gmail.com"
-# SOCIAL_MEDIA = {
-#    "YouTube": "Nan", 
-#   "LinkedIn": "https://www.linkedin.com/in/alessandra-balconi-5515a7182/",
+#EMAIL = "dalebv87@gmail.com"
+#SOCIAL_MEDIA = { 
+#    "LinkedIn": "https://www.linkedin.com/in/alessandra-balconi-5515a7182/", 
 #    "GitHub": "https://github.com/Abalconi",
-#    "Twitter": "Nan"
 #} 
 
-# st.set_page_config(page_title=PAGE_TITLE, page_icon=PAGE_ICON) 
+#st.set_page_config(page_title=PAGE_TITLE, page_icon=PAGE_ICON) 
 
 # ---LOAD CSS, PDF & PROFILE PIC ---
 # with open(css_file) as f:
@@ -27,11 +27,11 @@ from pathlib import Path
 # profile_pic = Image.open(profile_pic)
 
 # --- HERO SECTION ---
-# col1, col2 = st.columns(2, gap="small")
-# with col1:
-#    st.image(profile_pic, width=260)
+#col1, col2 = st.columns(2, gap="small")"
+#with col1:
+#   st.image(profile_pic, width=260)
 
-# with col2:
+#with col2:
 #    st.title(NAME)
 #    st.write(DESCRIPTION)
 #    st.download_button(
@@ -42,22 +42,23 @@ from pathlib import Path
 #    )
 #    st.write("📫", EMAIL)
 
-from forms.contact import contact_form
-
-
-@st.dialog("Contáctame")
-def show_contact_form():
-    contact_form()
-
-from pathlib import Path
 
 SOCIAL_MEDIA = {
     "LinkedIn": "https://www.linkedin.com/feed/",
     "GitHub": "https://github.com/Abalconi",
     }
 
+social_icons = {
+    "LinkedIn": ":material/account_circle:",  
+    "GitHub":":material/account_circle:",
+}
+
 # Definir el directorio actual (current directory)
 current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
+
+# Ruta al archivo PDF del CV
+css_file = "./styles/main.css"  
+resume_file = Path("assets/CV_AB.pdf")
 
 # Definir las rutas a los certificados
 cert_ia_url = "https://raw.githubusercontent.com/Abalconi/first_app/main/assets/cert_ia.pdf"
@@ -65,36 +66,55 @@ cert_django_url = "https://raw.githubusercontent.com/Abalconi/first_app/main/ass
 cert_programador_url = "https://raw.githubusercontent.com/Abalconi/first_app/main/assets/cert_programador.pdf"
 cert_python_inicial_url = "https://raw.githubusercontent.com/Abalconi/first_app/main/assets/cert_python_inicial.pdf"
 
+# Cargar el archivo PDF
+with open(resume_file, "rb") as pdf_file:
+    PDFbyte = pdf_file.read()
+
+# Cargar el archivo CSS
+with open(css_file) as f:
+    st.markdown("<style>{}</style>".format(f.read()), unsafe_allow_html=True)
 
 # --- HERO SECTION ---
 col1, col2 = st.columns(2, gap="small", vertical_alignment="center")
 with col1:
     st.image("./assets/profile_pic1.png", width=240)
+    
 
 with col2:
     st.title("Alessandra Balconi", anchor=False)
     st.write(
         "Analista de Datos con un talento para transformar datos en historias claras y útiles, listo para impulsar decisiones estratégicas con un toque de creatividad y precisión."
     )
-    if st.button("✉️ Contáctame"):
-        contact_form()
+    st.download_button(
+        label=" 📄 Descargar CV",
+        data=PDFbyte,
+        file_name=resume_file.name,
+        mime="application/octet-stream",
+    )
+    st.write(":material/mail:", "dalebv87@gmail.com")
 
 
-#  --- REDES SOCIALES ---
-st.write('\n')
-cols = st.columns(len(SOCIAL_MEDIA))
-for index, (platform, link) in enumerate(SOCIAL_MEDIA.items()):
-    cols[index].write(f"[{platform}]({link})")
+    #  --- REDES SOCIALES ---
+    st.write('\n')
+    cols = st.columns(len(SOCIAL_MEDIA))
+    for index, (platform, link) in enumerate(SOCIAL_MEDIA.items()):
+        icon = social_icons.get(platform, "")
+        cols[index].write(f"{icon} [{platform}]({link})")
+
+    
 
 # --- Experiencia y Calificaciones ---
 st.write('\n')
 st.subheader("Experiencia y Calificaciones")
 st.write(
+
+
+
     """
-- ✔️ Estudiante de Economía en la Universidad Rafael Landívar (8vo Semestre)
-- ✔️ Conocimientos de Python y Excel para Machine Learning
-- ✔️ Amplia comprensión de conceptos estadísticos y su implementación en diversos contextos
-- ✔️ Proactiva ejecución de tareas, asegurando el cumplimiento eficiente de los objetivos del equipo.
+- ► Estudiante de Economía en la Universidad Rafael Landívar (8vo Semestre)
+- ► Conocimientos de Python y Excel para Machine Learning
+- ► Amplia comprensión de conceptos estadísticos y su implementación en diversos contextos
+- ► Proactiva ejecución de tareas, asegurando el cumplimiento eficiente de los objetivos del equipo.
 """
 )
 
@@ -118,25 +138,25 @@ st.subheader("Experiencia Laboral")
 st.write("---")
 
 # --- TRABAJO 1
-st.write("🚧", "**Analista de Control de Calidad | Intouch CX**")
+st.write("📈", "**Analista de Control de Calidad | Intouch CX**")
 st.write("03/2021 - Presente")
 st.write(
     """
-- ► Used PowerBI and SQL to redeﬁne and track KPIs surrounding marketing initiatives, and supplied recommendations to boost landing page conversion rate by 38%
-- ► Led a team of 4 analysts to brainstorm potential marketing and sales improvements, and implemented A/B tests to generate 15% more client leads
-- ► Redesigned data model through iterations that improved predictions by 12%
+- ► Monitoreo y evaluación de llamadas para asegurar el cumplimiento de los estándares de calidad en el departamento de ventas.
+- ► Implementación de mejoras continuas en los procesos de ventas a través del análisis de datos y feedback.
+- ► Colaboración con equipos de ventas para identificar áreas de oportunidad y desarrollar estrategias de capacitación.
 """
 )
 
 # --- TRABAJO 2
 st.write('\n')
-st.write("🚧", "**Diseñadora de cursos E-Learing |  Strategia Virtual**")
+st.write("📊", "**Diseñadora de cursos E-Learing |  Strategia Virtual**")
 st.write("01/2018 - 02/2021")
 st.write(
     """
-- ► Built data models and maps to generate meaningful insights from customer data, boosting successful sales eﬀorts by 12%
-- ► Modeled targets likely to renew, and presented analysis to leadership, which led to a YoY revenue increase of $300K
-- ► Compiled, studied, and inferred large amounts of data, modeling information to drive auto policy pricing
+- ► Desarrollo de cursos de capacitación personalizados para empleados, directores y ejecutivos del sector público y privado.
+- ► Creación de contenidos interactivos y visuales para mejorar la experiencia de aprendizaje.
+- ► Provisión de soporte a empresas como Ingenio Pantaleón y SAT, asegurando la efectividad de los programas de formación.
 """
 )
 
@@ -150,6 +170,11 @@ cursos = [
         "nombre": "Curso de Fotografía",
         "institución": "Libera Accademia di Belle Arti, Italia",
         "año": 2009
+    },
+    {
+        "nombre": "Excel y Power BI. Academia A2",
+        "institución": "Academia A2, México",
+        "año": 2020
     },
     {
         "nombre": "Certificación Python Analytics",
@@ -172,7 +197,7 @@ cursos = [
     {
         "nombre": "Certificación Python Inicial",
         "institución": "Inove Coding School",
-        "año": 2022,
+        "año": 2023,
         "certificación": cert_python_inicial_url  # URL del archivo PDF
     }
 ]
