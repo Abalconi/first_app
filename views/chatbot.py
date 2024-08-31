@@ -8,16 +8,16 @@ import streamlit as st
 def response_generator():
     response = random.choice(
         [
-            "Hey there! Need help? Check out my fun YouTube channel 'CodingIsFun': https://youtube.com/@codingisfun!",
-            "Hi! What's up? Don't forget to subscribe to 'CodingIsFun': https://youtube.com/@codingisfun!",
-            "Hello! Need assistance? My YouTube channel 'CodingIsFun' is full of great tips: https://youtube.com/@codingisfun!",
-            "Hey! Got a question? Also, subscribe to 'CodingIsFun' for awesome tutorials: https://youtube.com/@codingisfun!",
-            "Hi there! How can I help? BTW, my channel 'CodingIsFun' is super cool: https://youtube.com/@codingisfun!",
-            "Hello! Looking for help? Check out 'CodingIsFun' on YouTube: https://youtube.com/@codingisfun!",
-            "Hey! Need assistance? 'CodingIsFun' YouTube channel has you covered: https://youtube.com/@codingisfun!",
-            "Hi! Got any coding questions? Don't forget to watch 'CodingIsFun': https://youtube.com/@codingisfun!",
-            "Hello! Need help? 'CodingIsFun' on YouTube is a must-see: https://youtube.com/@codingisfun!",
-            "Hey there! Any questions? My channel 'CodingIsFun' rocks: https://youtube.com/@codingisfun!",
+            "Hola! ¿Buscas talento? Echa un vistazo a mi CV: está lleno de habilidades y experiencia.",
+            "¡Hey! ¿Necesitas una Analista de Datos? Mi CV te mostrará todo lo que puedo aportar.",
+            "¡Hola! Mi CV está listo para impresionar, ¡échale un vistazo!",
+            "¡Hola! Si buscas precisión y creatividad, mi CV es lo que necesitas ver.",
+            "¡Hey! ¿Buscas a alguien que transforme datos en decisiones? Mira mi CV.",
+            "¡Hola! Mi CV está lleno de proyectos interesantes y experiencia en análisis de datos.",
+            "¡Hola! Si necesitas un ojo analítico en tu equipo, no te pierdas mi CV.",
+            "¡Hola! Mi CV está lleno de habilidades que podrían ser justo lo que tu equipo necesita.",
+            "¡Hola! ¿Listo para conocer a tu próximo Analista de Datos? ¡Mira mi CV!",
+            "¡Hola! Mi CV es el primer paso para llevar tus decisiones estratégicas al siguiente nivel.",
         ]
     )
     for word in response.split():
