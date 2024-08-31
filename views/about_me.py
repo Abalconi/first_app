@@ -54,7 +54,7 @@ current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
 
 # Ruta al archivo PDF del CV
 css_file = "./styles/main.css"  
-resume_file = Path("assets/CV_AB.pdf")
+resume_file = Path("assets/CV_ACT.pdf")
 
 # Definir las rutas a los certificados
 cert_ia_url = "https://raw.githubusercontent.com/Abalconi/first_app/main/assets/cert_ia.pdf"
@@ -161,21 +161,11 @@ st.write(
 st.subheader("Cursos Realizados")
 
 cursos = [
-    {
-        "nombre": "Curso de Fotografía",
-        "institución": "Libera Accademia di Belle Arti, Italia",
-        "año": 2009
-    },
-    {
-        "nombre": "Excel y Power BI. Academia A2",
-        "institución": "Academia A2, México",
-        "año": 2020
-    },
-    {
+       {
         "nombre": "Certificación Python Analytics",
         "institución": "Inove Coding School",
         "año": 2024,
-        "certificación": cert_ia_url # URL del archivo PDF
+        "certificación": cert_ia_url       
     },
     {
         "nombre": "Certificación Programador Django",
@@ -194,6 +184,11 @@ cursos = [
         "institución": "Inove Coding School",
         "año": 2023,
         "certificación": cert_python_inicial_url  # URL del archivo PDF
+    },
+    {
+         "nombre": "Excel y Power BI. Academia A2",
+        "institución": "Academia A2, México",
+        "año": 2020
     }
 ]
 
