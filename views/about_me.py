@@ -48,10 +48,6 @@ SOCIAL_MEDIA = {
     "GitHub": "https://github.com/Abalconi",
     }
 
-social_icons = {
-    "LinkedIn": ":material/account_circle:",  
-    "GitHub":":material/account_circle:",
-}
 
 # Definir el directorio actual (current directory)
 current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
@@ -91,15 +87,14 @@ with col2:
         file_name=resume_file.name,
         mime="application/octet-stream",
     )
-    st.write(":material/mail:", "dalebv87@gmail.com")
+    st.write("📫", "dalebv87@gmail.com")
 
 
     #  --- REDES SOCIALES ---
     st.write('\n')
     cols = st.columns(len(SOCIAL_MEDIA))
     for index, (platform, link) in enumerate(SOCIAL_MEDIA.items()):
-        icon = social_icons.get(platform, "")
-        cols[index].write(f"{icon} [{platform}]({link})")
+        cols[index].write(f"[{platform}]({link})")
 
     
 

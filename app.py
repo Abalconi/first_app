@@ -1,6 +1,7 @@
 import streamlit as st
 
 
+
 # --- PAGE SETUP ---
 about_page = st.Page(
     "views/about_me.py",
@@ -19,7 +20,6 @@ project_2_page = st.Page(
     title="ChatBot",
     icon=":material/smart_toy:",
 )
-
 
 # --- NAVIGATION SETUP [WITHOUT SECTIONS] ---
 # pg = st.navigation(pages=[about_page, project_1_page, project_2_page])
