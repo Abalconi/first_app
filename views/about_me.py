@@ -101,6 +101,7 @@ with col2:
 # --- Experiencia y Calificaciones ---
 st.write('\n')
 st.subheader("Experiencia y Calificaciones")
+st.write("---")
 st.write(
 
 
@@ -117,6 +118,7 @@ st.write(
 # --- SKILLS ---
 st.write('\n')
 st.subheader("Habilidades")
+st.write("---")
 st.write(
     """
 - 👩‍💻 Programación: Python (Scikit-learn, Pandas, Numpy)
@@ -158,7 +160,9 @@ st.write(
 
 # --- Cursos y Certificaciones ---
 # --- Listado de Cursos ---
+st.write('\n')
 st.subheader("Cursos Realizados")
+st.write("---")
 
 cursos = [
        {
