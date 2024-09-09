@@ -79,7 +79,7 @@ with col1:
 with col2:
     st.title("Alessandra Balconi", anchor=False)
     st.write(
-        "Analista de Datos con un talento para transformar datos en historias claras y útiles, listo para impulsar decisiones estratégicas con un toque de creatividad y precisión."
+        "Profesional en formación en Ciencias Económicas, con experiencia significativa en análisis de datos y Machine Learning. Manejo avanzado de Python, Excel y herramientas de Machine Learning para la optimización de procesos y toma de decisiones basadas en datos. Experiencia en desarrollar y aplicar modelos predictivos para resolver problemas complejos y mejorar la eficiencia operativa. Capacidad para generar insights estratégicos y colaborar en equipos multifuncionales con alta proactividad.
     )
     st.download_button(
         label=" 📄 Descargar CV",
@@ -87,7 +87,7 @@ with col2:
         file_name=resume_file.name,
         mime="application/octet-stream",
     )
-    st.write("📫", "dalebv87@gmail.com")
+   
 
 
     #  --- REDES SOCIALES ---
