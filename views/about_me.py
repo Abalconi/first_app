@@ -82,7 +82,7 @@ with col1:
 with col2:
     st.title("Alessandra Balconi", anchor=False)
     st.write(
-        "Profesional en formación en Ciencias Económicas, con experiencia significativa en análisis de datos y Machine Learning. Manejo avanzado de Python, Excel y herramientas de Machine Learning para la optimización de procesos y toma de decisiones basadas en datos. Experiencia en desarrollar y aplicar modelos predictivos para resolver problemas complejos y mejorar la eficiencia operativa. Capacidad para generar insights estratégicos y colaborar en equipos multifuncionales con alta proactividad."
+        "Economista en formación con experiencia en análisis de datos y Machine Learning. Manejo avanzado de Python y Excel, y habilidad en desarrollar modelos predictivos para optimizar procesos y mejorar la toma de decisiones. Proactiva en la generación de insights estratégicos y colaboración en equipos multifuncionales."
     )
     st.download_button(
         label=" 📄 Descargar CV",
