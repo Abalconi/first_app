@@ -3,8 +3,11 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-# Cargar el archivo Excel
-df = pd.read_excel(r"C:\Users\daleb\Downloads\abandono_con_scoring (1).xlsx")
+import os
+
+# Define la ruta al archivo de Excel
+file_path = os.path.join("data", "abandono_con_scoring (1).xlsx")
+df = pd.read_excel(file_path)
 
 # Convertir columnas relevantes a tipo numérico si es necesario
 df["scoring_abandono"] = pd.to_numeric(df["scoring_abandono"], errors="coerce")
