@@ -53,7 +53,7 @@ current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
 
 # Ruta al archivo PDF del CV
 css_file = "./styles/main.css"
-resume_file = Path("assets/CV_ACT.pdf")
+resume_file = Path("assets/cv Alessandra Balconi.pdf")
 
 # Definir las rutas a los certificados
 cert_ia_url = (
